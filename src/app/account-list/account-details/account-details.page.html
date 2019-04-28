@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Account Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+
+    <ion-row justify-content-center>
+      <ion-item lines="none">
+        <ion-text padding>
+          <h3 text-capitalize>Account Number</h3>
+        </ion-text>
+      </ion-item>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-item lines="none">
+        <ion-text padding>
+          <h3 text-capitalize>{{Account.accountNumber}}</h3>
+        </ion-text>
+      </ion-item>
+    </ion-row>
+
+    <ion-card-header>
+
+
+
+      <ion-row justify-content-center>
+        <ion-item lines="none">
+          <ion-text padding>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="light"></ion-icon>
+            <ion-icon name="star" color="light"></ion-icon>
+          </ion-text>
+        </ion-item>
+      </ion-row>
+
+
+    </ion-card-header>
+
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+
+
+
+    <ion-item lines="none">
+      <ion-label>totalService</ion-label>
+      <ion-label>{{Account.totalService}}</ion-label>
+      <ion-label>totalBill</ion-label>
+      <ion-label>{{Account.totalbill}}</ion-label>
+
+    </ion-item>
+
+    <ion-button shape="round" size="small" expand="block" color="primary">Send</ion-button>
+
+  </ion-card>
+
+
+</ion-content>

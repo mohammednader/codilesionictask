@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+
+    <ion-row>
+      <ion-icon name="menu" size="large"></ion-icon>
+      <ion-title text-center>
+        Accounts
+      </ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-searchbar placeholder="Search" item-content (ionChange)="AccountChanged($event)"></ion-searchbar>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-virtual-scroll [items]="accounts" approxItemHeight="320px">
+      <ion-item *virtualItem="let item">
+        <ion-avatar slot="start">
+          <ion-checkbox color="primary" size="large" (ionChange)="onSelected(item.totalbill,item.ischecked)"
+            [(ngModel)]="item.ischecked"></ion-checkbox>
+        </ion-avatar>
+
+        <ion-row [routerLink]="['./',item.a_id]">
+
+          <ion-row>
+            <ion-text item-last>
+              <h2 text-capitalize id="search-text" [ngStyle]="{'color':'black', 'font-size':'20px'}">
+                {{item.accountNumber}}</h2>
+            </ion-text>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-label color="medium">Total Service : {{item.totalService}}</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">Total Bill :SR {{item.totalbill}}$</ion-label>
+            </ion-col>
+          </ion-row>
+
+        </ion-row>
+
+        <ion-icon [routerLink]="['./',item.a_id]" name="arrow-forward"></ion-icon>
+
+      </ion-item>
+    </ion-virtual-scroll>
+  </ion-list>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-list>
+      <ion-row>
+        <ion-button fill="outline" color="light" (click)="onSelectAll()">
+          <ion-text color="primary">
+            <h6>{{select}}</h6>
+          </ion-text>
+        </ion-button>
+        <ion-button fill="outline" color="light" slots="end" disabled>
+
+          <ion-text color="dark" slots="end">
+            <h6>Total : SR {{total |currency:'CAD':'symbol':'4.2-2'}}</h6>
+          </ion-text>
+        </ion-button>
+
+      </ion-row>
+
+
+      <ion-button color="primary" expand="full" size="large" [disabled]="!checked">PAY</ion-button>
+
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>
